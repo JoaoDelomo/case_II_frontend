@@ -1,0 +1,81 @@
+/* 🔹 Footer sempre abaixo do conteúdo */
+.footer {
+    width: 100%;
+    background-color: #3E4A5A;
+    color: white;
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between; /* Mantém contato à esquerda e redes sociais alinhadas */
+    align-items: center;
+    position: relative; /* 🔹 Agora ele só aparece após o conteúdo */
+    bottom: 0;
+    left: 0;
+    max-width: 100vw;
+}
+
+/* 🔹 Contato à esquerda */
+.footer-contact {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+/* 🔹 Ícones das redes sociais MAIS à esquerda */
+.footer-social {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Move os ícones para mais perto do meio */
+    gap: 1.5rem;
+    padding-right: 10rem; /* 🔹 Ajuste este valor para mover mais para esquerda */
+}
+
+/* 🔹 Ajuste no tamanho dos ícones */
+.footer-social a {
+    color: white;
+    font-size: 2rem;
+    text-decoration: none;
+    transition: transform 0.2s ease-in-out;
+}
+
+.footer-social a:hover {
+    transform: scale(1.1);
+}
+
+/* 🔹 Evita rolagem horizontal */
+html, body {
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+/* 🔹 Faz a página crescer para empurrar o footer */
+#root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.page-container {
+    flex: 1; /* 🔹 Faz o conteúdo crescer e empurrar o footer para baixo */
+    display: flex;
+    flex-direction: column;
+}
+
+/* 🔹 Responsividade para mobile */
+@media (max-width: 768px) {
+    .footer {
+        flex-direction: column;
+        text-align: center;
+        padding: 1rem;
+    }
+
+    .footer-contact {
+        text-align: center;
+    }
+
+    .footer-social {
+        padding-right: 0; /* 🔹 Remove espaçamento para evitar erro no mobile */
+        justify-content: center;
+    }
+}

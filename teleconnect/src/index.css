@@ -58,6 +58,51 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+/* 🔹 Garante que o HTML e BODY ocupem toda a altura */
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 🔹 Garante que o root (React) ocupe toda a altura */
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* 100% da tela */
+}
+
+/* 🔹 Garante que a página ocupe todo o espaço antes do footer */
+.page-container {
+  flex: 1; /* Faz o conteúdo crescer para empurrar o footer para baixo */
+  display: flex;
+  flex-direction: column;
+}
+
+/* 🔹 Faz o conteúdo crescer para que o footer sempre fique no final */
+.page-content {
+  flex-grow: 1;
+}
+
+/* 🔹 Footer fixado no final apenas quando a página for curta */
+.footer {
+  width: 100%;
+  background-color: #3E4A5A;
+  color: white;
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* 🔹 Garante que a página não tenha rolagem horizontal */
+html, body {
+  overflow-x: hidden;
+}
+
+
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -71,5 +116,26 @@ button:focus-visible {
   }
 }
 
+/* 🔹 Faz o conteúdo ocupar o espaço antes do footer */
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Garante que a página tenha altura total */
+}
 
+/* 🔹 O conteúdo cresce e empurra o footer para baixo */
+.page-content {
+  flex-grow: 1;
+}
 
+/* 🔹 Footer ocupa toda a largura da tela, mas sem ficar fixo */
+.footer {
+  width: 100%;
+  background-color: #3E4A5A;
+  color: white;
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative; /* Garante que ele só aparece depois do conteúdo */
+}

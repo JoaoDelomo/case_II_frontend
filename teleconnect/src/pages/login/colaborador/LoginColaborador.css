@@ -1,0 +1,192 @@
+/* Container principal - Divide a tela em dois */
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100vh;
+    width: 100vw;
+    background-color: white;
+}
+
+/* Painel Esquerdo - Formulário */
+.leftPanel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    color: black;
+}
+
+/* Centraliza o conteúdo dentro da esquerda */
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    max-width: 400px;
+}
+
+/* Botão de voltar */
+.backButton {
+    align-self: flex-start;
+    font-size: 1.2rem;
+    color: black;
+    text-decoration: none;
+    margin-bottom: 1rem;
+}
+
+/* Estilo do título */
+h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: black;
+}
+
+/* Subtítulo */
+.subtitle {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    color: black;
+}
+
+/* Formulário */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+}
+
+/* Labels */
+label {
+    font-size: 1rem;
+    font-weight: 500;
+    color: black;
+}
+
+/* Inputs */
+input {
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #f3f4f6;
+    color: black;
+    width: 100%;
+}
+
+/* Garantindo que ambas as caixas tenham a mesma largura e altura */
+input, .passwordContainer {
+    width: 100%;
+    height: 50px;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #f3f4f6;
+    color: black;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+/* Ajustando a caixa de senha */
+.passwordContainer {
+    display: flex;
+    align-items: center;
+    background-color: #f3f4f6;
+    border-radius: 8px;
+    padding: 0 0.75rem;
+    width: 100%;
+    height: 50px;
+    box-sizing: border-box;
+}
+
+/* O input dentro da senha deve ocupar o máximo possível */
+.passwordContainer input {
+    flex-grow: 1;
+    border: none;
+    background: transparent;
+    outline: none;
+    height: 100%;
+}
+
+/* Ícone do olho alinhado corretamente */
+.passwordContainer .eyeIcon {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+/* Botão de Login */
+.loginButton {
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    padding: 0.9rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+    width: 100%;
+    text-align: center;
+}
+
+.loginButton:hover {
+    background-color: #1d4ed8;
+}
+
+/* Painel Direito - Ilustração */
+.rightPanel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #277AE6;
+}
+
+/* Estilizando a imagem */
+.rightPanel img {
+    max-width: 60%;
+    height: auto;
+}
+
+/* Mobile - Ajusta o layout */
+@media (max-width: 768px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .leftPanel {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .content {
+        width: 80%;
+        max-width: 400px;
+        text-align: center;
+    }
+
+    .form {
+        width: 100%;
+    }
+
+    input, .passwordContainer, .loginButton {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .rightPanel {
+        display: none; /* Remove a imagem no mobile */
+    }
+}

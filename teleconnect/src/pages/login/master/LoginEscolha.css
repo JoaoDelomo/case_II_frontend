@@ -1,0 +1,103 @@
+/* Container principal - Divide a tela em dois */
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100vh;
+    width: 100vw;
+    background-color: white;
+}
+
+/* Painel Esquerdo - Escolha */
+.leftPanel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    width: 80%;
+    max-width: 400px;
+}
+
+/* Botão de voltar */
+.backButton {
+    align-self: flex-start;
+    font-size: 1.5rem;
+    color: black;
+    text-decoration: none;
+    margin-bottom: 1rem;
+}
+
+/* Estilização dos botões */
+.choiceButton {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+/* Botão Cliente */
+.client {
+    background-color: #72a3dc;
+    color: white;
+}
+
+/* Botão Colaborador */
+.collaborator {
+    background-color: #1d4ed8;
+    color: white;
+}
+
+/* Efeito hover */
+.choiceButton:hover {
+    opacity: 0.9;
+}
+
+/* Painel Direito - Ilustração */
+.rightPanel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #72a3dc;
+}
+
+/* Imagem centralizada */
+.rightPanel img {
+    max-width: 60%;
+    height: auto;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .leftPanel {
+        width: 100%;
+        padding: 2rem;
+    }
+
+    .rightPanel {
+        display: none; /* Oculta a imagem no mobile */
+    }
+
+    .content {
+        width: 90%;
+        text-align: center;
+    }
+}

@@ -1,0 +1,119 @@
+.sobre-nos {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+  }
+  
+  /* Estilização geral das seções */
+  .section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 2rem;
+  }
+  
+  .section-1 {
+    background-color: rgba(39, 122, 230, 0.2); /* Azul claro transparente */
+}
+
+.section-2 {
+    background-color: rgba(63, 117, 255, 0.4); /* Roxo claro transparente */
+}
+
+.section-3 {
+    background-color: rgba(39, 122, 230, 0.2);
+}
+
+.section-4 {
+    background-color: rgba(63, 117, 255, 0.4);
+}
+
+.section-5 {
+    background-color: rgba(219, 226, 255, 1); /* Azul bem claro sem transparência */
+}
+
+  
+  /* Texto */
+  .text-content {
+    flex: 1;
+    color: #000000 !important; /* 🔹 Garante que o texto fique preto */
+  }
+  
+  .text-content h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #000000 !important; /* 🔹 Garante que o título fique preto */
+  }
+  
+  .text-content p {
+    font-size: 1rem;
+    color: #000000 !important; /* 🔹 Garante que o parágrafo fique preto */
+  }
+  
+  
+  /* Imagens */
+  .section img {
+    width: 250px; /* Ajuste conforme necessário */
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  /* Seção com imagem à esquerda */
+  .section-left {
+    flex-direction: row-reverse; /* Inverte a posição da imagem e do texto */
+  }
+  
+  /* Última seção */
+  .section-final {
+    text-align: center;
+    padding: 2rem;
+    border-radius: 10px;
+  }
+  
+  /* Botões */
+  .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .plan-button {
+    background-color: #6a5acd;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .plan-button.business {
+    background-color: #4a46d1;
+  }
+  
+  .plan-button:hover {
+    opacity: 0.8;
+  }
+  
+  /* Responsividade */
+  @media (max-width: 768px) {
+    .section {
+      flex-direction: column !important; /* Garante que a imagem sempre fique acima do texto no mobile */
+      text-align: center;
+    }
+  
+    .section img {
+      width: 80%;
+    }
+  
+    .buttons {
+      flex-direction: column;
+    }
+  }
+  
