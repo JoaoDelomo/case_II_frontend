@@ -41,26 +41,42 @@
     transform: scale(1.1);
 }
 
-/* 🔹 Evita rolagem horizontal */
+/* 🔹 Garante que HTML e body ocupem 100% da tela */
 html, body {
-    overflow-x: hidden;
-    margin: 0;
-    padding: 0;
     height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
 }
 
-/* 🔹 Faz a página crescer para empurrar o footer */
+/* 🔹 O container principal ocupa todo o espaço disponível */
 #root {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
 
+/* 🔹 O conteúdo cresce, empurrando o footer para baixo */
 .page-container {
-    flex: 1; /* 🔹 Faz o conteúdo crescer e empurrar o footer para baixo */
+    flex: 1;
     display: flex;
     flex-direction: column;
 }
+
+/* 🔹 O footer ocupa toda a largura e aparece no final da página */
+.footer {
+    width: 100%;
+    background-color: #3E4A5A;
+    color: white;
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative; /* Garante que o footer fique depois do conteúdo */
+    bottom: 0;
+    left: 0;
+}
+
 
 /* 🔹 Responsividade para mobile */
 @media (max-width: 768px) {

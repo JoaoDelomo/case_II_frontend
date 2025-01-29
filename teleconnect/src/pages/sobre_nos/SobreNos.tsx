@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./SobreNos.css";
 
 export default function SobreNos() {
@@ -43,8 +44,15 @@ export default function SobreNos() {
       <div className="section section-final section-5">
         <h2>Está pronto para uma conexão do futuro?</h2>
         <div className="buttons">
-          <button className="plan-button">Veja os planos ideais para você!</button>
-          <button className="plan-button business">Confira os planos para sua empresa!</button>
+          {/* Botão para planos individuais */}
+          <Link to="/plans" className="plan-button">
+            Veja os planos ideais para você!
+          </Link>
+
+          {/* Botão para planos empresariais */}
+          <Link to="/business" className="plan-button business">
+            Confira os planos para sua empresa!
+          </Link>
         </div>
       </div>
     </div>

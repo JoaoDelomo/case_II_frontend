@@ -28,42 +28,16 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
 }
 
 /* 🔹 Garante que o HTML e BODY ocupem toda a altura */
 html, body {
   height: 100%;
-  margin: 0;
   display: flex;
   flex-direction: column;
+  overflow-x: hidden; /* Evita rolagem horizontal */
 }
 
 /* 🔹 Garante que o root (React) ocupe toda a altura */
@@ -85,7 +59,7 @@ html, body {
   flex-grow: 1;
 }
 
-/* 🔹 Footer fixado no final apenas quando a página for curta */
+/* 🔹 Footer ocupa toda a largura da tela e aparece apenas no final */
 .footer {
   width: 100%;
   background-color: #3E4A5A;
@@ -94,15 +68,11 @@ html, body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative; /* Ele aparece apenas depois de todo o conteúdo */
+  bottom: 0;
 }
 
-/* 🔹 Garante que a página não tenha rolagem horizontal */
-html, body {
-  overflow-x: hidden;
-}
-
-
-
+/* 🔹 Responsividade */
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -114,28 +84,4 @@ html, body {
   button {
     background-color: #f9f9f9;
   }
-}
-
-/* 🔹 Faz o conteúdo ocupar o espaço antes do footer */
-.page-container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh; /* Garante que a página tenha altura total */
-}
-
-/* 🔹 O conteúdo cresce e empurra o footer para baixo */
-.page-content {
-  flex-grow: 1;
-}
-
-/* 🔹 Footer ocupa toda a largura da tela, mas sem ficar fixo */
-.footer {
-  width: 100%;
-  background-color: #3E4A5A;
-  color: white;
-  padding: 1.5rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: relative; /* Garante que ele só aparece depois do conteúdo */
 }

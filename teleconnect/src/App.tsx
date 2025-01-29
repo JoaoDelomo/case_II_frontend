@@ -13,15 +13,13 @@ export default function App() {
       <div id="root">
         <Header />
         <div className="page-container">
-          <div className="page-content">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/login" element={<LoginEscolha />} />
-              <Route path="/login/cliente" element={<LoginCliente />} />
-              <Route path="/login/colaborador" element={<LoginColaborador />} />
-              <Route path="/sobre-nos" element={<SobreNos />} /> {/* Nova rota */}
-            </Routes>
-          </div>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<LoginEscolha />} />
+            <Route path="/login/cliente" element={<LoginCliente />} />
+            <Route path="/login/colaborador" element={<LoginColaborador />} />
+            <Route path="/sobre-nos" element={<SobreNos />} />
+          </Routes>
         </div>
         <Footer />
       </div>

@@ -12,7 +12,7 @@ export default function LoginCliente() {
       <div className="leftPanel">
         <div className="content">
           {/* Botão de Voltar */}
-          <Link to="/" className="backButton">←</Link>
+          <Link to="/login" className="backButton">←</Link>
 
           {/* Título */}
           <h2>Portal do Cliente</h2>
