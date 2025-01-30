@@ -6,7 +6,7 @@ export default function ParaVoce() {
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
 
-  // Função para verificar se os botões devem estar ativos ou desativados
+  // Função para verificar se pode rolar para esquerda ou direita
   const checkScrollPosition = () => {
     if (sliderRef.current) {
       const { scrollLeft, scrollWidth, clientWidth } = sliderRef.current;
@@ -15,10 +15,10 @@ export default function ParaVoce() {
     }
   };
 
-  // Função para rolar o slider
+  // Função para rolar os planos
   const scroll = (direction: "left" | "right") => {
     if (sliderRef.current) {
-      const scrollAmount = 320;
+      const scrollAmount = sliderRef.current.clientWidth * 0.8;
       sliderRef.current.scrollBy({
         left: direction === "right" ? scrollAmount : -scrollAmount,
         behavior: "smooth",
@@ -26,7 +26,7 @@ export default function ParaVoce() {
     }
   };
 
-  // Adiciona um listener para detectar quando o usuário rolar manualmente
+  // Atualiza a posição das setas
   useEffect(() => {
     const slider = sliderRef.current;
     if (slider) {
@@ -71,7 +71,7 @@ export default function ParaVoce() {
         </div>
       </div>
 
-      {/* Botões de navegação abaixo dos planos */}
+      {/* Botões de navegação */}
       <div className="scroll-buttons">
         <button 
           className={`scroll-btn ${!canScrollLeft ? "disabled" : ""}`} 
