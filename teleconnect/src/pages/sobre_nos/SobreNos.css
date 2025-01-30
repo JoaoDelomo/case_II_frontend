@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   gap: 0; /* Remove espaços entre as seções */
-  padding-top: 5rem; /* Adiciona mais espaço acima da primeira seção */
+  padding-top: 6rem; /* Adiciona mais espaço acima da primeira seção */
 }
 
 /* Estilização geral das seções */
@@ -10,10 +10,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 3rem 5rem; /* Aumenta o espaçamento interno */
+  padding: 3rem 5rem;
   border-radius: 0;
-  width: 100vw; /* Garante que ocupe toda a largura */
-  box-sizing: border-box; /* Evita que padding cause overflow */
+  width: 100vw;
+  box-sizing: border-box;
 }
 
 /* Define cores alternadas */
@@ -58,7 +58,7 @@
 
 /* Imagens */
 .section img {
-  width: 250px; /* Ajuste conforme necessário */
+  width: 250px;
   height: auto;
   border-radius: 8px;
   max-width: 40%;
@@ -93,7 +93,8 @@
   padding: 0.8rem 1.5rem;
   font-size: 1rem;
   border-radius: 5px;
-  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
 }
 
 .plan-button.business {
@@ -107,7 +108,7 @@
 /* Responsividade */
 @media (max-width: 768px) {
   .section {
-      flex-direction: column !important; /* Empilha no mobile */
+      flex-direction: column !important;
       text-align: center;
       padding: 2rem;
   }

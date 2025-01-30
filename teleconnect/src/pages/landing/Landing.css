@@ -1,0 +1,100 @@
+/* 🔹 Reset básico */
+body, h1, h2, h3, p, a {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* 🔹 Estilização geral */
+  .landing-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* 🔹 Header */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 1rem 2rem;
+    background: #ffffff;
+    border-bottom: 2px solid #ddd;
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #0033cc;
+  }
+  
+  nav a {
+    margin: 0 1rem;
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+  }
+  
+  .cta-button {
+    background: #0033cc;
+    color: white;
+    padding: 0.7rem 1.2rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  /* 🔹 Hero Section */
+  .hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    padding: 3rem 0;
+  }
+  
+  .hero-text {
+    max-width: 50%;
+  }
+  
+  .hero img {
+    max-width: 40%;
+    height: auto;
+  }
+  
+  /* 🔹 Planos */
+  .plans-section {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    width: 90%;
+    padding: 3rem 0;
+  }
+  
+  .plan-card {
+    background: #f4f4f4;
+    padding: 2rem;
+    text-align: center;
+    border-radius: 10px;
+  }
+  
+  /* 🔹 Seção de Impacto */
+  .impact-section {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: #dde5ff;
+    width: 100%;
+  }
+  
+  /* 🔹 Footer */
+  .footer {
+    width: 100%;
+    background-color: #3E4A5A;
+    color: white;
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  

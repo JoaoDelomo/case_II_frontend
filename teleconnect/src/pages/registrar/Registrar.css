@@ -1,0 +1,114 @@
+/* 🔹 Container principal */
+.register-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    max-width: 400px;
+    margin-bottom: 6rem; /* Aumenta a margem inferior apenas no formulário */
+}
+
+
+/* 🔹 Conteúdo principal */
+.main-content {
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+
+}
+
+/* 🔹 Painel Esquerdo - Formulário */
+.leftPanel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    color: black;
+}
+
+/* 🔹 Centraliza o conteúdo */
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    max-width: 400px;
+}
+
+/* 🔹 Painel Direito - Ilustração */
+.rightPanel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #277AE6;
+}
+
+.rightPanel img {
+    max-width: 60%;
+    height: auto;
+}
+
+/* 🔹 Footer */
+.footer {
+    width: 100%;
+    background-color: #3E4A5A;
+    color: white;
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* 🔹 Botão de Registro */
+.registerButton {
+    background-color: #2563eb; /* Azul principal */
+    color: white;
+    border: none;
+    padding: 0.9rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+    width: 100%;
+    text-align: center;
+}
+
+.registerButton:hover {
+    background-color: #1d4ed8; /* Azul escuro no hover */
+}
+
+
+@media (max-width: 768px) {
+    .main-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centraliza */
+        justify-content: center; /* Centraliza verticalmente */
+    }
+
+    .rightPanel {
+        display: none; /* Esconde a imagem no mobile */
+    }
+
+    .leftPanel {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: auto; /* Garante que ocupe toda a altura necessária */
+        padding: 2rem 0;
+    }
+
+    .content {
+        width: 90%; /* Aumenta um pouco a largura */
+        max-width: 400px;
+    }
+}

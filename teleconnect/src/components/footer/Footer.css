@@ -77,7 +77,6 @@ html, body {
     left: 0;
 }
 
-
 /* 🔹 Responsividade para mobile */
 @media (max-width: 768px) {
     .footer {
@@ -91,7 +90,7 @@ html, body {
     }
 
     .footer-social {
-        padding-right: 0; /* 🔹 Remove espaçamento para evitar erro no mobile */
         justify-content: center;
+        gap: 1rem;
     }
 }
