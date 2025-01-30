@@ -1,8 +1,19 @@
 import "./ParaVoce.css";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 
 export default function ParaVoce() {
   const sliderRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
+
+  // Função para verificar se os botões devem estar ativos ou desativados
+  const checkScrollPosition = () => {
+    if (sliderRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = sliderRef.current;
+      setCanScrollLeft(scrollLeft > 0);
+      setCanScrollRight(scrollLeft + clientWidth < scrollWidth);
+    }
+  };
 
   // Função para rolar o slider
   const scroll = (direction: "left" | "right") => {
@@ -14,6 +25,20 @@ export default function ParaVoce() {
       });
     }
   };
+
+  // Adiciona um listener para detectar quando o usuário rolar manualmente
+  useEffect(() => {
+    const slider = sliderRef.current;
+    if (slider) {
+      slider.addEventListener("scroll", checkScrollPosition);
+      checkScrollPosition();
+    }
+    return () => {
+      if (slider) {
+        slider.removeEventListener("scroll", checkScrollPosition);
+      }
+    };
+  }, []);
 
   const plans = [
     { name: "Plano 1", speed: "100 mega", price: "R$ 99,90" },
@@ -48,10 +73,18 @@ export default function ParaVoce() {
 
       {/* Botões de navegação abaixo dos planos */}
       <div className="scroll-buttons">
-        <button className="scroll-btn" onClick={() => scroll("left")}>
+        <button 
+          className={`scroll-btn ${!canScrollLeft ? "disabled" : ""}`} 
+          onClick={() => scroll("left")} 
+          disabled={!canScrollLeft}
+        >
           &#10094;
         </button>
-        <button className="scroll-btn" onClick={() => scroll("right")}>
+        <button 
+          className={`scroll-btn ${!canScrollRight ? "disabled" : ""}`} 
+          onClick={() => scroll("right")} 
+          disabled={!canScrollRight}
+        >
           &#10095;
         </button>
       </div>
