@@ -1,139 +1,140 @@
 /* Container principal */
 .plans-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 80px 20px;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  
-  /* Título "Escolha seu plano empresarial" */
-  .title {
-    font-size: 2.5rem;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 40px;
-    width: 100%;
-  }
-  
-  /* Contêiner para centralizar o slider */
-  .plans-slider-container {
-    width: 100%;
-    overflow: hidden;
-    display: flex;
-    justify-content: flex-start;
-  }
-  
-  /* Estilização do Slider */
-  .plans-slider {
-    display: flex;
-    gap: 20px;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    padding: 20px;
-    scrollbar-width: none;
-  }
-  
-  .plans-slider::-webkit-scrollbar {
-    display: none;
-  }
-  
-  /* Cartão de cada plano */
-  .plan-card {
-    flex: 0 0 auto;
-    width: 320px;
-    height: 350px;
-    background: white;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  
-  .plan-card h3 {
-    font-size: 1.6rem;
-    font-weight: bold;
-  }
-  
-  .speed {
-    font-size: 1.3rem;
-    color: #007bff;
-    font-weight: bold;
-  }
-  
-  .subtext {
-    font-size: 1.1rem;
-    font-weight: bold;
-    margin-top: 10px;
-  }
-  
-  .plan-card ul {
-    list-style: none;
-    padding: 0;
-    font-size: 1.1rem;
-  }
-  
-  .plan-card ul li {
-    margin-bottom: 8px;
-  }
-  
-  .price {
-    font-size: 1.3rem;
-    font-weight: bold;
-    margin: 10px 0;
-  }
-  
-  /* Botão de assinatura */
-  .subscribe-btn {
-    background-color: #007bff;
-    color: white;
-    padding: 12px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 1rem;
-  }
-  
-  .subscribe-btn:hover {
-    background-color: #0056b3;
-  }
-  
-  /* Botões de navegação abaixo dos planos */
-  .scroll-buttons {
-    display: flex;
-    justify-content: center;
-    margin-top: 30px;
-    gap: 15px;
-  }
-  
-  /* Botões arredondados */
-  .scroll-btn {
-    width: 55px;
-    height: 55px;
-    background: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 26px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.3s ease;
-  }
-  
-  /* Botão desativado */
-  .scroll-btn.disabled {
-    background: rgba(0, 0, 0, 0.2);
-    cursor: not-allowed;
-  }
-  
-  .scroll-btn:hover:not(.disabled) {
-    background: rgba(0, 0, 0, 0.8);
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 80px 20px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Título "Escolha seu plano empresarial" */
+.title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 40px;
+  width: 100%;
+}
+
+/* Contêiner para centralizar o slider */
+.plans-slider-container {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* Estilização do Slider */
+.plans-slider {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 20px;
+  scrollbar-width: none;
+}
+
+.plans-slider::-webkit-scrollbar {
+  display: none;
+}
+
+/* Cartão de cada plano */
+.plan-card {
+  flex: 0 0 auto;
+  width: 320px;
+  height: 420px; /* Aumenta a altura para acomodar melhor o botão */
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.plan-card h3 {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.speed {
+  font-size: 1.3rem;
+  color: #007bff;
+  font-weight: bold;
+}
+
+.subtext {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.plan-card ul {
+  list-style: none;
+  padding: 0;
+  font-size: 1.1rem;
+}
+
+.plan-card ul li {
+  margin-bottom: 8px;
+}
+
+.price {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+/* Botão de assinatura */
+.subscribe-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: auto; /* Garante que o botão fique no final da caixa */
+  width: 100%;
+}
+
+.subscribe-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Botões de navegação abaixo dos planos */
+.scroll-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  gap: 15px;
+}
+
+/* Botões arredondados */
+.scroll-btn {
+  width: 55px;
+  height: 55px;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+}
+
+/* Botão desativado */
+.scroll-btn.disabled {
+  background: rgba(0, 0, 0, 0.2);
+  cursor: not-allowed;
+}
+
+.scroll-btn:hover:not(.disabled) {
+  background: rgba(0, 0, 0, 0.8);
+}

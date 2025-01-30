@@ -4,12 +4,13 @@ import Footer from "./components/footer/Footer";
 import LoginEscolha from "./pages/login/master/LoginEscolha";
 import LoginCliente from "./pages/login/cliente/LoginCliente";
 import LoginColaborador from "./pages/login/colaborador/LoginColaborador";
-import SobreNos from "./pages/sobre_nos/SobreNos"; // Importando a nova página
-import Registrar from "./pages/registrar/Registrar"; // Importando a página de registro
-import ForgotPassword from "./pages/esqueci_senha/ForgotPassword"; // Importando a página de registro
+import SobreNos from "./pages/sobre_nos/SobreNos";
+import Registrar from "./pages/registrar/Registrar";
+import ForgotPassword from "./pages/esqueci_senha/ForgotPassword";
 import LandingPage from "./pages/landing/Landing";
 import ParaVoce from "./pages/para_voce/ParaVoce"
 import ParaEmpresas from "./pages/para_empresas/ParaEmpresas";
+import PedidoConfirmado from "./pages/pedido_confirmado/PedidoConfirmado";
 
 
 export default function App() {
@@ -28,6 +29,7 @@ export default function App() {
             <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route path="/para-voce" element={<ParaVoce />} />
             <Route path="/para-empresas" element={<ParaEmpresas />} />
+            <Route path="/pedido-confirmado" element={<PedidoConfirmado />} />
           </Routes>
         </div>
         <Footer />

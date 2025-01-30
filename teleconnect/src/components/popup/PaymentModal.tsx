@@ -1,6 +1,7 @@
 import React from "react";
 import "./SubscriptionModal.css"; // Reutiliza o CSS do SubscriptionModal
 import { IoIosArrowBack } from "react-icons/io";
+import { useNavigate } from "react-router-dom";
 
 interface PaymentModalProps {
   plan: { name: string; speed: string; price: string } | null;
@@ -10,6 +11,8 @@ interface PaymentModalProps {
 
 const PaymentModal: React.FC<PaymentModalProps> = ({ plan, onClose, onBack }) => {
   if (!plan) return null;
+
+const navigate = useNavigate();
 
   return (
     <div className="modal-overlay">
@@ -25,7 +28,7 @@ const PaymentModal: React.FC<PaymentModalProps> = ({ plan, onClose, onBack }) =>
         <input type="text" placeholder="Nome do Titular" />
         <input type="text" placeholder="CPF do Titular" />
 
-        <button className="confirm-btn">Assinar</button>
+        <button className="confirm-btn" onClick={() => navigate("/pedido-confirmado")}>Assinar</button>
       </div>
     </div>
   );

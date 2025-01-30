@@ -1,0 +1,43 @@
+.confirmacao-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 70vh;
+    text-align: center;
+    background-color: #f9f9f9;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.title_pedido {
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-top: 170px;
+}
+
+.description {
+    font-size: 1.4rem;
+    max-width: 600px;
+    margin: 10px auto 20px;
+    line-height: 1.5; 
+}
+
+.home-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+    justify-content: center;
+}
+
+.home-btn:hover {
+    background-color: #0056b3;
+}
