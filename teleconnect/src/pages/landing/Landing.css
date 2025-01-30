@@ -1,100 +1,227 @@
 /* 🔹 Reset básico */
 body, h1, h2, h3, p, a {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-  }
-  
-  /* 🔹 Estilização geral */
-  .landing-page {
-    display: flex;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* 🔹 Estrutura principal */
+.landing-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 🔹 Seções ocupando toda a largura */
+.full-width {
+  width: 100vw;
+  padding: 3rem 5rem;
+  box-sizing: border-box;
+}
+
+/* 🔹 Primeira seção (Hero) */
+.hero, .business-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* 🔹 Cores das seções */
+.hero { background: #D6E4FF; }
+.business-section { background: #B5C7FF; }
+.impact-section { background: #E1EBFF; }
+.differentials { background: #B5C7FF; }
+
+/* 🔹 Textos */
+.hero-text, .section-text {
+  flex: 1;
+  max-width: 50%;
+  color: black;
+}
+
+.hero-text h1, .section-text h2 {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.hero-text p, .section-text p {
+  font-size: 1rem;
+  color: #444;
+}
+
+/* 🔹 Imagens */
+.section-image {
+  max-width: 250px;
+  height: auto;
+}
+
+/* 🔹 Ajuste no card do plano */
+.plan-card {
+  background: white;
+  color: black;
+  padding: 1.5rem;
+  text-align: left;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.8rem;
+  width: 220px;
+  margin-top: 2rem;
+}
+
+/* 🔹 Estilização dos retângulos azuis (textos brancos) */
+.plan-info {
+  background: #3a4dff;
+  padding: 0.5rem;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  text-align: center;
+  width: 100%;
+  color: white;
+  font-weight: bold;
+}
+
+/* 🔹 Ajuste do botão principal */
+.cta-button {
+  background: white;
+  color: #0033cc;
+  padding: 0.7rem 1rem;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  text-align: center;
+  width: 100%;
+  margin-top: 0.5rem;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.cta-button:hover {
+  background: #0033cc;
+  color: white;
+}
+
+/* 🔹 Seção de impacto (Corrigida para ficar centralizada) */
+.impact-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: #E1EBFF;
+  width: 100vw;
+  padding: 4rem 5rem;
+}
+
+/* 🔹 Ajuste de texto */
+.impact-section h2 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: black;
+}
+
+.impact-section p {
+  font-size: 1rem;
+  color: black;
+  max-width: 60%;
+}
+
+/* 🔹 Ajuste para imagens dentro da seção */
+.impact-section img {
+  max-width: 250px;
+  height: auto;
+  margin-top: 1rem;
+}
+
+/* 🔹 Botão estilizado */
+.impact-section .cta-button {
+  background: white;
+  color: #0033cc;
+  padding: 0.7rem 1rem;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 1rem;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+
+/* 🔹 Ajuste do botão "Saiba mais" */
+.impact-section .cta-button {
+  background: white;
+  color: #0033cc;
+  padding: 0.5rem 1rem;  /* 🔹 Reduzido o padding para manter o tamanho dos outros botões */
+  font-size: 0.9rem; /* 🔹 Ajustado o tamanho da fonte */
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 1rem;
+  transition: background 0.3s ease, color 0.3s ease;
+  width: auto; /* 🔹 Agora o botão terá um tamanho proporcional ao texto */
+}
+
+
+
+/* 🔹 Seção de diferenciais */
+.differentials {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  padding: 3rem 5rem;
+}
+
+.diff-box {
+  flex: 1;
+  padding: 2rem;
+}
+
+/* 🔹 Ajuste dos botões "Saiba mais" */
+.diff-box .cta-button {
+  background: white;
+  color: #0033cc;
+  padding: 0.7rem 1.2rem;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.diff-box .cta-button:hover {
+  background: #0033cc;
+  color: white;
+}
+
+/* 🔹 Ajuste para imagens dentro das seções */
+.differentials img {
+  max-width: 250px;
+  height: auto;
+}
+
+/* 🔹 Responsividade */
+@media (max-width: 768px) {
+  .full-width {
     flex-direction: column;
-    align-items: center;
-  }
-  
-  /* 🔹 Header */
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding: 1rem 2rem;
-    background: #ffffff;
-    border-bottom: 2px solid #ddd;
-  }
-  
-  .logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #0033cc;
-  }
-  
-  nav a {
-    margin: 0 1rem;
-    text-decoration: none;
-    color: black;
-    font-weight: 500;
-  }
-  
-  .cta-button {
-    background: #0033cc;
-    color: white;
-    padding: 0.7rem 1.2rem;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  
-  /* 🔹 Hero Section */
-  .hero {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 90%;
-    padding: 3rem 0;
-  }
-  
-  .hero-text {
-    max-width: 50%;
-  }
-  
-  .hero img {
-    max-width: 40%;
-    height: auto;
-  }
-  
-  /* 🔹 Planos */
-  .plans-section {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    width: 90%;
-    padding: 3rem 0;
-  }
-  
-  .plan-card {
-    background: #f4f4f4;
+    text-align: center;
     padding: 2rem;
-    text-align: center;
-    border-radius: 10px;
   }
-  
-  /* 🔹 Seção de Impacto */
-  .impact-section {
-    text-align: center;
-    padding: 3rem 2rem;
-    background: #dde5ff;
-    width: 100%;
+
+  .hero-text, .plan-card {
+    max-width: 100%;
   }
-  
-  /* 🔹 Footer */
-  .footer {
-    width: 100%;
-    background-color: #3E4A5A;
-    color: white;
-    padding: 1.5rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+
+  .hero img {
+    width: 80%;
+    max-width: 100%;
   }
-  
+
+  .impact-section p {
+    max-width: 90%;
+  }
+
+  .differentials {
+    flex-direction: column;
+  }
+}

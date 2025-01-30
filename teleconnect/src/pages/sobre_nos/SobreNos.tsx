@@ -45,12 +45,12 @@ export default function SobreNos() {
         <h2>Está pronto para uma conexão do futuro?</h2>
         <div className="buttons">
           {/* Botão para planos individuais */}
-          <Link to="/plans" className="plan-button">
+          <Link to="/para-voce" className="plan-button">
             Veja os planos ideais para você!
           </Link>
 
           {/* Botão para planos empresariais */}
-          <Link to="/business" className="plan-button business">
+          <Link to="/para-empresas" className="plan-button business">
             Confira os planos para sua empresa!
           </Link>
         </div>
