@@ -93,4 +93,17 @@
     background: transparent; /* Garante que não apareça fundo no hover */
 }
 
-  
+/* Classe exclusiva para os títulos das seções */
+.modal-section-title {
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: left;
+  width: 100%;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+/* Ajusta o espaçamento entre os inputs */
+.modal-content input {
+  margin-bottom: 12px; /* Aumenta o espaçamento entre os campos */
+}

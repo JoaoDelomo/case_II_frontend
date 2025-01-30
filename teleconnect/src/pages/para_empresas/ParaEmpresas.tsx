@@ -1,10 +1,14 @@
 import "./ParaEmpresas.css";
 import { useRef, useState, useEffect } from "react";
+import CompanySubscriptionModal from "../../components/popup/CompanySubscriptionModal";
 
 export default function ParaEmpresas() {
   const sliderRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
+  const [isCompanyModalOpen, setIsCompanyModalOpen] = useState(false);
+  const [selectedPlan, setSelectedPlan] = useState<{ name: string; speed: string; price: string } | null>(null);
+
 
   // Função para verificar se os botões devem estar ativos ou desativados
   const checkScrollPosition = () => {
@@ -51,7 +55,7 @@ export default function ParaEmpresas() {
   return (
     <div className="plans-container">
       <h2 className="title">Escolha seu plano empresarial</h2>
-
+  
       <div className="plans-slider-container">
         <div className="plans-slider" ref={sliderRef}>
           {plans.map((plan, index) => (
@@ -64,12 +68,12 @@ export default function ParaEmpresas() {
                 <li>+ Modem Wi-Fi grátis</li>
               </ul>
               <p className="price">por {plan.price} /mês</p>
-              <button className="subscribe-btn">Assine já</button>
+              <button className="subscribe-btn" onClick={() => {setSelectedPlan(plan);setIsCompanyModalOpen(true);}}>Assine já</button>
             </div>
           ))}
         </div>
       </div>
-
+  
       {/* Botões de navegação abaixo dos planos */}
       <div className="scroll-buttons">
         <button 
@@ -87,6 +91,14 @@ export default function ParaEmpresas() {
           &#10095;
         </button>
       </div>
+  
+      {/* Renderiza o modal de inscrição da empresa */}
+      {isCompanyModalOpen && (
+        <CompanySubscriptionModal 
+          plan={selectedPlan} 
+          onClose={() => setIsCompanyModalOpen(false)} 
+        />
+      )}
     </div>
-  );
+  );  
 }
