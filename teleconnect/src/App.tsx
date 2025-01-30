@@ -9,6 +9,7 @@ import Registrar from "./pages/registrar/Registrar"; // Importando a página de 
 import ForgotPassword from "./pages/esqueci_senha/ForgotPassword"; // Importando a página de registro
 import LandingPage from "./pages/landing/Landing";
 import ParaVoce from "./pages/para_você/ParaVoce"
+import ParaEmpresas from "./pages/para_empresas/ParaEmpresas";
 
 
 export default function App() {
@@ -26,6 +27,7 @@ export default function App() {
             <Route path="/register" element={<Registrar />} /> {/* 🔹 Adicionada a rota de registro */}
             <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route path="/para-voce" element={<ParaVoce />} />
+            <Route path="/para-empresas" element={<ParaEmpresas />} />
           </Routes>
         </div>
         <Footer />

@@ -24,7 +24,7 @@ export default function Header() {
           <Link to="/" className={styles.navLink}>Início</Link>
           <Link to="/sobre-nos" className={styles.navLink}>Sobre nós</Link>
           <Link to="/para-voce" className={styles.navLink}>Para você</Link>
-          <Link to="/business" className={styles.navLink}>Para empresas</Link>
+          <Link to="/para-empresas" className={styles.navLink}>Para empresas</Link>
           <Link to="/login" className={styles.navLink}>Login</Link>
         </nav>
 
@@ -42,7 +42,7 @@ export default function Header() {
           <Link to="/" className={styles.navLink} onClick={() => setIsOpen(false)}>Início</Link>
           <Link to="/sobre-nos" className={styles.navLink} onClick={() => setIsOpen(false)}>Sobre nós</Link>
           <Link to="/para-voce" className={styles.navLink} onClick={() => setIsOpen(false)}>Para você</Link>
-          <Link to="/business" className={styles.navLink} onClick={() => setIsOpen(false)}>Para empresas</Link>
+          <Link to="/para empresas" className={styles.navLink} onClick={() => setIsOpen(false)}>Para empresas</Link>
           <Link to="/login" className={styles.navLink} onClick={() => setIsOpen(false)}>Login</Link>
           <Link to="/register" className={styles.registerButton}>
             Cadastre-se →
