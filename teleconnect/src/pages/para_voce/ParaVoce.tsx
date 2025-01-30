@@ -1,13 +1,15 @@
 import "./ParaVoce.css";
 import { useRef, useState, useEffect } from "react";
 import SubscriptionModal from "../../components/popup/SubscriptionModal";
+import PaymentModal from "../../components/popup/PaymentModal"; // Novo modal de pagamento
 
 export default function ParaVoce() {
   const sliderRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedPlan, setSelectedPlan] = useState(null);
+  const [isSubscriptionModalOpen, setIsSubscriptionModalOpen] = useState(false);
+  const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
+  const [selectedPlan, setSelectedPlan] = useState<{ name: string; speed: string; price: string } | null>(null);
 
   // Função para verificar se pode rolar para esquerda ou direita
   const checkScrollPosition = () => {
@@ -72,7 +74,7 @@ export default function ParaVoce() {
                 className="subscribe-btn" 
                 onClick={() => {
                   setSelectedPlan(plan);
-                  setIsModalOpen(true);
+                  setIsSubscriptionModalOpen(true);
                 }}
               >
                 Assine já
@@ -100,8 +102,29 @@ export default function ParaVoce() {
         </button>
       </div>
 
-      {/* Renderiza o modal quando isModalOpen for true */}
-      {isModalOpen && <SubscriptionModal plan={selectedPlan} onClose={() => setIsModalOpen(false)} />}
+      {/* Renderiza o modal de inscrição */}
+      {isSubscriptionModalOpen && (
+        <SubscriptionModal 
+          plan={selectedPlan} 
+          onClose={() => setIsSubscriptionModalOpen(false)}
+          onContinue={() => {
+            setIsSubscriptionModalOpen(false);
+            setIsPaymentModalOpen(true);
+          }}
+        />
+      )}
+
+      {/* Renderiza o modal de pagamento */}
+      {isPaymentModalOpen && (
+        <PaymentModal 
+          plan={selectedPlan} 
+          onClose={() => setIsPaymentModalOpen(false)}
+          onBack={() => {
+            setIsPaymentModalOpen(false);
+            setIsSubscriptionModalOpen(true);
+          }}
+        />
+      )}
     </div>
   );
 }

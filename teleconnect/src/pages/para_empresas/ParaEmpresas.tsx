@@ -18,13 +18,13 @@ export default function ParaEmpresas() {
   // Função para rolar o slider
   const scroll = (direction: "left" | "right") => {
     if (sliderRef.current) {
-      const scrollAmount = 320;
+      const scrollAmount = sliderRef.current.clientWidth * 0.8; // Agora igual à página "Para você"
       sliderRef.current.scrollBy({
         left: direction === "right" ? scrollAmount : -scrollAmount,
         behavior: "smooth",
       });
     }
-  };
+  };  
 
   // Adiciona um listener para detectar quando o usuário rolar manualmente
   useEffect(() => {
