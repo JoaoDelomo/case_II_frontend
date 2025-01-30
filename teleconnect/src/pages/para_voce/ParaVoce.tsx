@@ -1,10 +1,13 @@
 import "./ParaVoce.css";
 import { useRef, useState, useEffect } from "react";
+import SubscriptionModal from "../../components/popup/SubscriptionModal";
 
 export default function ParaVoce() {
   const sliderRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedPlan, setSelectedPlan] = useState(null);
 
   // Função para verificar se pode rolar para esquerda ou direita
   const checkScrollPosition = () => {
@@ -65,7 +68,15 @@ export default function ParaVoce() {
                 <li>Ligações ilimitadas</li>
               </ul>
               <p className="price">{plan.price} /mês</p>
-              <button className="subscribe-btn">Assine já</button>
+              <button 
+                className="subscribe-btn" 
+                onClick={() => {
+                  setSelectedPlan(plan);
+                  setIsModalOpen(true);
+                }}
+              >
+                Assine já
+              </button>
             </div>
           ))}
         </div>
@@ -88,6 +99,9 @@ export default function ParaVoce() {
           &#10095;
         </button>
       </div>
+
+      {/* Renderiza o modal quando isModalOpen for true */}
+      {isModalOpen && <SubscriptionModal plan={selectedPlan} onClose={() => setIsModalOpen(false)} />}
     </div>
   );
 }
