@@ -1,0 +1,60 @@
+import "./ParaVoce.css";
+import { useRef } from "react";
+
+export default function ParaVoce() {
+  const sliderRef = useRef<HTMLDivElement>(null);
+
+  // Função para rolar o slider
+  const scroll = (direction: "left" | "right") => {
+    if (sliderRef.current) {
+      const scrollAmount = 320;
+      sliderRef.current.scrollBy({
+        left: direction === "right" ? scrollAmount : -scrollAmount,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  const plans = [
+    { name: "Plano 1", speed: "100 mega", price: "R$ 99,90" },
+    { name: "Plano 2", speed: "200 mega", price: "R$ 139,90" },
+    { name: "Plano 3", speed: "250 mega", price: "R$ 179,90" },
+    { name: "Plano 4", speed: "300 mega", price: "R$ 199,90" },
+    { name: "Plano 5", speed: "400 mega", price: "R$ 249,90" },
+    { name: "Plano 6", speed: "500 mega", price: "R$ 299,90" },
+    { name: "Plano 7", speed: "600 mega", price: "R$ 349,90" },
+  ];
+
+  return (
+    <div className="plans-container">
+      <h2 className="title">Escolha seu plano</h2>
+
+      <div className="plans-slider-container">
+        <div className="plans-slider" ref={sliderRef}>
+          {plans.map((plan, index) => (
+            <div key={index} className="plan-card">
+              <h3>{plan.name}</h3>
+              <p className="speed">{plan.speed}</p>
+              <ul>
+                <li>Plano celular 10GB</li>
+                <li>Ligações ilimitadas</li>
+              </ul>
+              <p className="price">{plan.price} /mês</p>
+              <button className="subscribe-btn">Assine já</button>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Botões de navegação abaixo dos planos */}
+      <div className="scroll-buttons">
+        <button className="scroll-btn" onClick={() => scroll("left")}>
+          &#10094;
+        </button>
+        <button className="scroll-btn" onClick={() => scroll("right")}>
+          &#10095;
+        </button>
+      </div>
+    </div>
+  );
+}
