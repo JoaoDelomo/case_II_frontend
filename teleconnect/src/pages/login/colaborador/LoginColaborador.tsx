@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Eye, EyeSlash } from "@phosphor-icons/react";
 import "./LoginColaborador.css"; // Importa o CSS
 
 export default function LoginColaborador() {
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate(); // Instância do useNavigate para redirecionamento
 
   return (
     <div className="container">
@@ -36,7 +37,9 @@ export default function LoginColaborador() {
             </div>
 
             {/* Botão de Login */}
-            <button className="loginButton">Login</button>
+            <button className="loginButton" onClick={() => navigate("/portal-colaborador")}>
+              Login
+            </button>
           </div>
         </div>
       </div>

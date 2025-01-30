@@ -1,0 +1,111 @@
+.clientes-container {
+    display: flex;
+    height: 100vh;
+  }
+  
+  .sidebar {
+    width: 200px;
+    background-color: #a0c4ff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .logo {
+    font-size: 32px;
+    text-align: center;
+  }
+  
+  .menu-btn,
+  .logout-btn {
+    background: white;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .logout-btn {
+    background: red;
+    color: white;
+  }
+  
+  .menu-btn.active {
+    font-weight: bold;
+    background-color: #dfe7fd;
+  }
+  
+  .clientes-content {
+    flex-grow: 1;
+    padding: 20px;
+  }
+  
+  .clientes-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+  }
+  
+  .filter-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .add-btn {
+    background: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .clientes-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .clientes-table th,
+  .clientes-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  .clientes-table th {
+    background-color: #f2f2f2;
+  }
+  
+  .status {
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .status.finalizado {
+    background-color: #d4edda;
+    color: #155724;
+  }
+  
+  .status.instalação {
+    background-color: #fff3cd;
+    color: #856404;
+  }
+  
+  .status.não-contatado {
+    background-color: #f8d7da;
+    color: #721c24;
+  }
+  
+  .delete-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: red;
+  }
+  
