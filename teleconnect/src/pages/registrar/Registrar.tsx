@@ -19,6 +19,7 @@ export default function Registrar() {
     state: "",
     password: "",
   });
+  const [error, setError] = useState(""); // Para exibir mensagens de erro
 
   // 🔹 Atualiza os campos do formulário
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -45,24 +46,47 @@ export default function Registrar() {
     }
   };
 
-  // 🔹 Enviar formulário
+  // 🔹 Enviar formulário para a API
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setError("");
 
-    console.log("Dados enviados:", formData);
-    alert("Cadastro realizado com sucesso!");
-    navigate("/login");
+    console.log("📡 Enviando dados para API:", formData);
+
+    try {
+      const response = await fetch("http://127.0.0.1:8000/api/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      console.log("🔹 Resposta do servidor:", data);
+
+      if (!response.ok) {
+        throw new Error(data.detail || "Erro ao registrar cliente");
+      }
+
+      alert("✅ Cadastro realizado com sucesso!");
+      navigate("/login/cliente");
+
+    } catch (err: any) {
+      console.error("❌ Erro ao registrar:", err.message);
+      setError(err.message);
+    }
   };
 
   return (
     <div className="register-container">
-      {/* Conteúdo principal */}
       <div className="main-content">
         {/* Lado esquerdo - Formulário */}
         <div className="leftPanel">
           <div className="content">
             <Link to="/" className="backButton">←</Link>
             <h2>Registre-se</h2>
+
+            {error && <p className="error" style={{ color: "red" }}>⚠️ {error}</p>}
 
             <form className="form" onSubmit={handleSubmit}>
               <label>Nome</label>
@@ -75,13 +99,19 @@ export default function Registrar() {
               <input type="tel" name="phone" placeholder="11912345678" onChange={handleChange} required />
 
               <label>CPF</label>
-              <input type="text" name="cpf" placeholder="123.456.789-00" onChange={handleChange} required />
+              <input type="text" name="cpf" placeholder="12345678900" onChange={handleChange} required />
 
               <label>CEP</label>
-              <input type="text" name="cep" placeholder="03334000" onChange={(e) => {
-                handleChange(e);
-                fetchAddress(e.target.value);
-              }} required />
+              <input 
+                type="text" 
+                name="cep" 
+                placeholder="03334000" 
+                onChange={(e) => {
+                  handleChange(e);
+                  fetchAddress(e.target.value);
+                }} 
+                required 
+              />
 
               <label>Rua</label>
               <input type="text" name="street" value={formData.street} readOnly required />
@@ -100,7 +130,13 @@ export default function Registrar() {
 
               <label>Senha</label>
               <div className="passwordContainer">
-                <input type={showPassword ? "text" : "password"} name="password" placeholder="Digite sua senha" onChange={handleChange} required />
+                <input 
+                  type={showPassword ? "text" : "password"} 
+                  name="password" 
+                  placeholder="Digite sua senha" 
+                  onChange={handleChange} 
+                  required 
+                />
                 <span className="eyeIcon" onClick={() => setShowPassword(!showPassword)}>
                   {showPassword ? <EyeSlash size={20} /> : <Eye size={20} />}
                 </span>

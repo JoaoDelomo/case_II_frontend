@@ -27,7 +27,7 @@ export default function LandingPage() {
           <p className="plan-info">+ Modem Wi-Fi grátis</p>
           <p className="plan-info">+ Ligações ilimitadas</p>
           <span>Por R$ 179,90/mês</span>
-          <Link to="/plans" className="cta-button">Conferir planos</Link>
+          <Link to="/para-empresas" className="cta-button">Conferir planos</Link>
         </div>
         <img src="/src/assets/imagem_homem_trabalho.png" alt="Trabalhando com Teleconnect" className="section-image" />
         <div className="hero-text">
@@ -49,13 +49,13 @@ export default function LandingPage() {
         <div className="diff-box">
           <h2>Transforme sua conectividade pessoal com nossos planos.</h2>
           <p>Escolha o plano ideal para você e sua família aproveitar o melhor da internet.</p>
-          <Link to="/plans" className="cta-button">Saiba mais</Link>
+          <Link to="/para-voce" className="cta-button">Saiba mais</Link>
           <img src="/src/assets/conectividade_pessoal.png" alt="Conectividade Pessoal" className="section-image" />
         </div>
         <div className="diff-box">
           <h2>Acelere seu negócio com nossos planos empresariais.</h2>
           <p>Internet de alta performance para empresas de todos os portes.</p>
-          <Link to="/business" className="cta-button">Saiba mais</Link>
+          <Link to="/" className="cta-button">Saiba mais</Link>
           <img src="/src/assets/conectividade_empresarial.png" alt="Conectividade Empresarial" className="section-image" />
         </div>
       </section>
