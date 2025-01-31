@@ -9,8 +9,8 @@ export default function ParaVoce() {
   const [canScrollRight, setCanScrollRight] = useState(true);
   const [isSubscriptionModalOpen, setIsSubscriptionModalOpen] = useState(false);
   const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
-  const [selectedPlan, setSelectedPlan] = useState<{ name: string; speed: string; price: string; details: string[] } | null>(null);
-  const [plans, setPlans] = useState<{ name: string; speed: string; price: string; details: string[] }[]>([]);
+  const [selectedPlan, setSelectedPlan] = useState<{ nome: string; preco: string; beneficios: string[] } | null>(null);
+  const [plans, setPlans] = useState<{ nome: string; preco: string; beneficios: string[] }[]>([]);
   const API_URL = "http://127.0.0.1:8000/api/plans";
 
   // 🔹 Buscar planos do backend quando a página carrega
@@ -20,21 +20,7 @@ export default function ParaVoce() {
         const response = await fetch(API_URL);
         const data = await response.json();
         console.log("📡 Planos recebidos:", data);
-
-        // 🔹 Mapeia os planos para um formato compatível com o frontend
-        const formattedPlans = data.plans.map((plan: { nome: string; franquia_internet: string; ligacoes: string; whatsapp: string; sms: string; beneficios: string[]; preco: string }) => ({
-          name: plan.nome, // Nome do plano
-          speed: plan.franquia_internet || "Sem informação", // Pega a franquia de internet
-          price: `R$ ${parseFloat(plan.preco).toFixed(2)}`, // Formata preço corretamente
-          details: [
-            `📞 Ligações: ${plan.ligacoes}`,
-            `💬 SMS: ${plan.sms}`,
-            `📱 WhatsApp: ${plan.whatsapp}`,
-            ...plan.beneficios, // Adiciona os benefícios ao array
-          ],
-        }));
-
-        setPlans(formattedPlans); // Atualiza o estado com os planos formatados
+        setPlans(data.plans); // Atualiza o estado com os planos
       } catch (error) {
         console.error("❌ Erro ao buscar planos:", error);
       }
@@ -84,14 +70,14 @@ export default function ParaVoce() {
         <div className="plans-slider" ref={sliderRef}>
           {plans.map((plan, index) => (
             <div key={index} className="plan-card">
-              <h3>{plan.name}</h3>
-              <p className="speed">{plan.speed}</p> {/* Exibe a franquia de internet */}
+              <h3>{plan.nome}</h3>
+              <p className="speed">{plan.beneficios[0]}</p> {/* Exibe o primeiro benefício como destaque */}
               <ul>
-                {plan.details.map((detail, i) => (
-                  <li key={i}>{detail}</li>
+                {plan.beneficios.map((beneficio, i) => (
+                  <li key={i}>{beneficio}</li>
                 ))}
               </ul>
-              <p className="price">{plan.price} /mês</p>
+              <p className="price">{plan.preco} /mês</p>
               <button 
                 className="subscribe-btn" 
                 onClick={() => {
