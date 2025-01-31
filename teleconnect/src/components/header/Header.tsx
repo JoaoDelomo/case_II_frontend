@@ -2,6 +2,7 @@ import { useState } from "react";
 import { List, X } from "@phosphor-icons/react";
 import { Link } from "react-router-dom";
 import styles from "./Header.module.css";
+import logoTeleconnect from "../../assets/logo_teleconnect.png"; // Importando o logo
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,9 +15,10 @@ export default function Header() {
           {isOpen ? <X size={28} className={styles.menuIcon} /> : <List size={28} className={styles.menuIcon} />}
         </button>
 
-        {/* Logo - Centralizada no Mobile */}
-        <Link to="/" className={styles.logo}>
-          Teleconnect
+        {/* Logo + Nome Teleconnect */}
+        <Link to="/" className={styles.logoContainer}>
+          <img src={logoTeleconnect} alt="Logo Teleconnect" className={styles.logoImage} />
+          <span className={styles.logoText}>Teleconnect</span>
         </Link>
 
         {/* Menu Desktop - Some no mobile */}
@@ -42,7 +44,7 @@ export default function Header() {
           <Link to="/" className={styles.navLink} onClick={() => setIsOpen(false)}>Início</Link>
           <Link to="/sobre-nos" className={styles.navLink} onClick={() => setIsOpen(false)}>Sobre nós</Link>
           <Link to="/para-voce" className={styles.navLink} onClick={() => setIsOpen(false)}>Para você</Link>
-          <Link to="/para empresas" className={styles.navLink} onClick={() => setIsOpen(false)}>Para empresas</Link>
+          <Link to="/para-empresas" className={styles.navLink} onClick={() => setIsOpen(false)}>Para empresas</Link>
           <Link to="/login" className={styles.navLink} onClick={() => setIsOpen(false)}>Login</Link>
           <Link to="/register" className={styles.registerButton}>
             Cadastre-se →
