@@ -11,7 +11,7 @@ export default function LandingPage() {
           <p>Adquira o plano familiar mais vantajoso para as suas necessidades.</p>
         </div>
         <img src="/src/assets/imagem_casal.png" alt="Família conectada" className="section-image" />
-        <div className="plan-card">
+        <div className="plan-card card1">
           <h3>100 MB</h3>
           <p className="plan-info">+ Plano celular 10 GB</p>
           <p className="plan-info">+ Ligações ilimitadas</p>
@@ -22,7 +22,7 @@ export default function LandingPage() {
 
       {/* Seção de Planos Empresariais */}
       <section className="business-section full-width">
-        <div className="plan-card">
+        <div className="plan-card card2">
           <h3>1 GB</h3>
           <p className="plan-info">+ Modem Wi-Fi grátis</p>
           <p className="plan-info">+ Ligações ilimitadas</p>

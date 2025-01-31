@@ -57,22 +57,30 @@ body, h1, h2, h3, p, a {
   height: auto;
 }
 
-/* 🔹 Ajuste no card do plano */
+/* 🔹 Ajuste na caixa do plano (reduzindo altura) */
 .plan-card {
   background: white;
   color: black;
-  padding: 1.5rem;
+  padding: 0.8rem; /* Reduzi o padding */
   text-align: center;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0.8rem;
-  width: 250px;
+  gap: 0.5rem;
+  width: 220px; /* Mantive o tamanho reduzido */
   height: auto;
-  margin-top: 2rem;
+  max-height: 250px; /* Defini um limite menor para a altura */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card1 {
+  margin-top: 3rem;
+}
+
+.card2 {
+  margin-top: 2rem;
 }
 
 /* 🔹 Efeito hover nos planos */
@@ -81,34 +89,42 @@ body, h1, h2, h3, p, a {
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* 🔹 Estilização dos retângulos azuis (textos brancos) */
+/* 🔹 Ajuste nas caixas "plus" */
 .plan-info {
-  background: #3a4dff;
-  padding: 0.5rem;
+  background: #6F9EFF; /* Azul mais claro */
+  padding: 0.3rem 0.6rem; /* Diminuindo ainda mais o padding */
   border-radius: 5px;
-  font-size: 0.9rem;
+  font-size: 0.85rem; /* Mantendo o tamanho do texto menor */
   text-align: center;
-  width: 100%;
+  width: 85%; /* Diminuindo ainda mais a largura */
   color: white;
   font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* 🔹 Ajuste do botão "Conferir planos" */
+/* 🔹 Ajuste no texto dos preços */
+.caixa.preço {
+  font-weight: bold; /* Colocando o texto em negrito */
+}
+
+/* 🔹 Ajuste no botão "Conferir planos" */
 .cta-button {
-  background: white;
-  color: #0033cc;
-  padding: 0.7rem 1rem;
+  background: #0033cc; /* Fundo azul */
+  color: white;
+  padding: 0.6rem 1rem;
   border-radius: 5px;
   text-decoration: none;
   font-weight: bold;
   text-align: center;
   width: auto;
-  margin-top: 0.5rem;
+  margin-top: 0rem;
   transition: background 0.3s ease, color 0.3s ease;
 }
 
 .cta-button:hover {
-  background: #0033cc;
+  background: #001F99;
   color: white;
 }
 
@@ -147,8 +163,8 @@ body, h1, h2, h3, p, a {
 /* 🔹 Botões "Saiba mais" */
 .impact-section .cta-button, 
 .diff-box .cta-button {
-  background: white;
-  color: #0033cc;
+  background: #0033cc;
+  color: white;
   padding: 0.5rem 1rem;
   font-size: 0.9rem;
   border-radius: 5px;
@@ -164,7 +180,7 @@ body, h1, h2, h3, p, a {
 /* 🔹 Hover para os botões "Saiba mais" */
 .impact-section .cta-button:hover, 
 .diff-box .cta-button:hover {
-  background: #0033cc;
+  background: #001F99;
   color: white;
 }
 
@@ -204,8 +220,8 @@ body, h1, h2, h3, p, a {
 
 /* 🔹 Ajuste para o botão "Saiba mais" */
 .diff-box .cta-button {
-  background: white;
-  color: #0033cc;
+  background: #0033cc;
+  color: white;
   padding: 0.5rem 1rem;
   font-size: 1rem;
   border-radius: 5px;
