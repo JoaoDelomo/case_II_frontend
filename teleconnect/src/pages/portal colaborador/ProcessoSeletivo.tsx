@@ -2,7 +2,21 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./ProcessoSeletivo.css";
 
-const vagasIniciais = [
+// Definição do tipo para candidatos
+interface Candidato {
+  nome: string;
+  email: string;
+  telefone: string;
+  status: string;
+}
+
+// Definição do tipo para vagas
+interface Vaga {
+  id: number;
+  nome: string;
+}
+
+const vagasIniciais: Vaga[] = [
   { id: 1, nome: "Estagiário" },
   { id: 2, nome: "Consultor" },
   { id: 3, nome: "Coordenador" },
@@ -10,29 +24,27 @@ const vagasIniciais = [
   { id: 5, nome: "Analista" },
 ];
 
-const candidatosIniciais = {
-  1: [
-    { nome: "Amanda", email: "amanda@gmail.com", telefone: "(19) 98765-4321", status: "Contratado" },
-  ],
-  2: [
-    { nome: "Vitória", email: "vitoria@hotmail.com", telefone: "(11) 98765-4321", status: "3ª Fase" },
-  ],
-  3: [
-    { nome: "Vitor", email: "vitor@icloud.com", telefone: "(11) 98765-4321", status: "Não contratado" },
-  ],
+// Define o estado inicial dos candidatos
+const candidatosIniciais: Record<number, Candidato[]> = {
+  1: [{ nome: "Amanda", email: "amanda@gmail.com", telefone: "(19) 98765-4321", status: "Contratado" }],
+  2: [{ nome: "Vitória", email: "vitoria@hotmail.com", telefone: "(11) 98765-4321", status: "3ª Fase" }],
+  3: [{ nome: "Vitor", email: "vitor@icloud.com", telefone: "(11) 98765-4321", status: "Não contratado" }],
 };
 
 const ProcessoSeletivo: React.FC = () => {
   const navigate = useNavigate();
-  const [vagas] = useState(vagasIniciais);
-  const [candidatos, setCandidatos] = useState(candidatosIniciais);
+  const [vagas] = useState<Vaga[]>(vagasIniciais);
+  const [candidatos, setCandidatos] = useState<Record<number, Candidato[]>>(candidatosIniciais);
   const [vagaSelecionada, setVagaSelecionada] = useState<number | null>(null);
   const [searchTerm, setSearchTerm] = useState("");
 
+  // Função para alterar o status do candidato
   const handleStatusChange = (vagaId: number, index: number, newStatus: string) => {
     setCandidatos((prevState) => {
       const newCandidatos = { ...prevState };
-      newCandidatos[vagaId][index].status = newStatus;
+      newCandidatos[vagaId] = newCandidatos[vagaId].map((candidato, i) =>
+        i === index ? { ...candidato, status: newStatus } : candidato
+      );
       return newCandidatos;
     });
   };
@@ -41,8 +53,12 @@ const ProcessoSeletivo: React.FC = () => {
     <div className="processo-seletivo-container">
       <aside className="sidebar">
         <div className="logo">📡</div>
-        <button className="menu-btn" onClick={() => navigate("/portal-colaborador")}>Início</button>
-        <button className="menu-btn" onClick={() => navigate("/clientes")}>Clientes</button>
+        <button className="menu-btn" onClick={() => navigate("/portal-colaborador")}>
+          Início
+        </button>
+        <button className="menu-btn" onClick={() => navigate("/clientes")}>
+          Clientes
+        </button>
         <button className="menu-btn">Processo Seletivo</button>
         <button className="logout-btn" onClick={() => navigate("/")}>Sair 🔄</button>
       </aside>
@@ -83,7 +99,7 @@ const ProcessoSeletivo: React.FC = () => {
         </div>
 
         {/* Lista de Candidatos */}
-        {vagaSelecionada !== null && (
+        {vagaSelecionada !== null && candidatos[vagaSelecionada] && (
           <div className="candidatos-container">
             <h2>Candidatos para {vagas.find((v) => v.id === vagaSelecionada)?.nome}</h2>
             <table>
