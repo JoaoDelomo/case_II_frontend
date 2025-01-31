@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Eye, EyeSlash } from "@phosphor-icons/react";
 import "./LoginCliente.css"; // Importando o CSS
 
 export default function LoginCliente() {
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate(); // Hook para navegação
 
   return (
     <div className="container">
@@ -12,7 +13,7 @@ export default function LoginCliente() {
       <div className="leftPanel">
         <div className="content">
           {/* Botão de Voltar */}
-          <Link to="/login" className="backButton">←</Link>
+          <button className="backButton" onClick={() => navigate("/login")}>←</button>
 
           {/* Título */}
           <h2>Portal do Cliente</h2>
@@ -31,7 +32,9 @@ export default function LoginCliente() {
             </div>
 
             {/* Botão de Login */}
-            <button className="loginButton">Login</button>
+            <button className="loginButton" onClick={() => navigate("/portal-cliente")}>
+              Login
+            </button>
 
             {/* Link de Esqueci minha senha */}
             <Link to="/forgot-password" className="forgotPassword">Esqueci minha senha</Link>

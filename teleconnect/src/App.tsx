@@ -14,6 +14,8 @@ import PedidoConfirmado from "./pages/pedido_confirmado/PedidoConfirmado";
 import PortalColaborador from "./pages/portal colaborador/PortalColaborador";
 import Clientes from "./pages/portal colaborador/Clientes";
 import ProcessoSeletivo from "./pages/portal colaborador/ProcessoSeletivo";
+import InicioPortalCliente from "./pages/portal cliente/InicioPortalCliente";
+import NenhumPlanoAtivo from "./pages/portal cliente/NenhumPlanoAtivo";
 
 
 export default function App() {
@@ -37,6 +39,8 @@ export default function App() {
             <Route path="/portal-colaborador" element={<PortalColaborador />} />
             <Route path="/clientes" element={<Clientes />} />
             <Route path="/processo-seletivo" element={<ProcessoSeletivo />} />
+            <Route path="/portal-cliente" element={<InicioPortalCliente />} />
+            <Route path="/nenhum-plano-ativo" element={<NenhumPlanoAtivo />} />
           </Routes>
         </div>
         <Footer />
