@@ -23,7 +23,9 @@ body, h1, h2, h3, p, a {
 .hero, .business-section {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  text-align: center;
+  gap: 2rem;
 }
 
 /* 🔹 Cores das seções */
@@ -60,14 +62,23 @@ body, h1, h2, h3, p, a {
   background: white;
   color: black;
   padding: 1.5rem;
-  text-align: left;
+  text-align: center;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: center;
   gap: 0.8rem;
-  width: 220px;
+  width: 250px;
+  height: auto;
   margin-top: 2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 🔹 Efeito hover nos planos */
+.plan-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 /* 🔹 Estilização dos retângulos azuis (textos brancos) */
@@ -82,7 +93,7 @@ body, h1, h2, h3, p, a {
   font-weight: bold;
 }
 
-/* 🔹 Ajuste do botão principal */
+/* 🔹 Ajuste do botão "Conferir planos" */
 .cta-button {
   background: white;
   color: #0033cc;
@@ -91,7 +102,7 @@ body, h1, h2, h3, p, a {
   text-decoration: none;
   font-weight: bold;
   text-align: center;
-  width: 100%;
+  width: auto;
   margin-top: 0.5rem;
   transition: background 0.3s ease, color 0.3s ease;
 }
@@ -101,7 +112,7 @@ body, h1, h2, h3, p, a {
   color: white;
 }
 
-/* 🔹 Seção de impacto (Corrigida para ficar centralizada) */
+/* 🔹 Seção de impacto */
 .impact-section {
   display: flex;
   flex-direction: column;
@@ -133,71 +144,53 @@ body, h1, h2, h3, p, a {
   margin-top: 1rem;
 }
 
-/* 🔹 Botão estilizado */
-.impact-section .cta-button {
-  background: white;
-  color: #0033cc;
-  padding: 0.7rem 1rem;
-  border-radius: 5px;
-  text-decoration: none;
-  font-weight: bold;
-  text-align: center;
-  margin-top: 1rem;
-  transition: background 0.3s ease, color 0.3s ease;
-}
-
-
-/* 🔹 Ajuste do botão "Saiba mais" */
-.impact-section .cta-button {
-  background: white;
-  color: #0033cc;
-  padding: 0.5rem 1rem;  /* 🔹 Reduzido o padding para manter o tamanho dos outros botões */
-  font-size: 0.9rem; /* 🔹 Ajustado o tamanho da fonte */
-  border-radius: 5px;
-  text-decoration: none;
-  font-weight: bold;
-  text-align: center;
-  margin-top: 1rem;
-  transition: background 0.3s ease, color 0.3s ease;
-  width: auto; /* 🔹 Agora o botão terá um tamanho proporcional ao texto */
-}
-
-
-
-/* 🔹 Seção de diferenciais */
-.differentials {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  text-align: center;
-  padding: 3rem 5rem;
-}
-
-.diff-box {
-  flex: 1;
-  padding: 2rem;
-}
-
-/* 🔹 Ajuste dos botões "Saiba mais" */
+/* 🔹 Botões "Saiba mais" */
+.impact-section .cta-button, 
 .diff-box .cta-button {
   background: white;
   color: #0033cc;
-  padding: 0.7rem 1.2rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
   border-radius: 5px;
   text-decoration: none;
   font-weight: bold;
+  text-align: center;
+  display: inline-block;
+  width: auto;
+  margin-top: 1rem;
   transition: background 0.3s ease, color 0.3s ease;
 }
 
+/* 🔹 Hover para os botões "Saiba mais" */
+.impact-section .cta-button:hover, 
 .diff-box .cta-button:hover {
   background: #0033cc;
   color: white;
 }
 
-/* 🔹 Ajuste para imagens dentro das seções */
+/* 🔹 Seção de diferenciais */
+.differentials {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  text-align: center;
+  padding: 3rem 5rem;
+  gap: 2rem;
+}
+
+.diff-box {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* 🔹 Ajuste para centralizar as imagens e manter os botões abaixo */
 .differentials img {
   max-width: 250px;
   height: auto;
+  margin-bottom: 1rem;
 }
 
 /* 🔹 Responsividade */
@@ -223,5 +216,10 @@ body, h1, h2, h3, p, a {
 
   .differentials {
     flex-direction: column;
+    align-items: center;
+  }
+
+  .diff-box .cta-button {
+    margin-top: 1rem;
   }
 }
