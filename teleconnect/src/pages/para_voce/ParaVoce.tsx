@@ -9,7 +9,38 @@ export default function ParaVoce() {
   const [canScrollRight, setCanScrollRight] = useState(true);
   const [isSubscriptionModalOpen, setIsSubscriptionModalOpen] = useState(false);
   const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
-  const [selectedPlan, setSelectedPlan] = useState<{ name: string; speed: string; price: string } | null>(null);
+  const [selectedPlan, setSelectedPlan] = useState<{ name: string; speed: string; price: string; details: string[] } | null>(null);
+  const [plans, setPlans] = useState<{ name: string; speed: string; price: string; details: string[] }[]>([]);
+  const API_URL = "http://127.0.0.1:8000/api/plans";
+
+  // 🔹 Buscar planos do backend quando a página carrega
+  useEffect(() => {
+    const fetchPlans = async () => {
+      try {
+        const response = await fetch(API_URL);
+        const data = await response.json();
+        console.log("📡 Planos recebidos:", data);
+
+        // 🔹 Mapeia os planos para um formato compatível com o frontend
+        const formattedPlans = data.plans.map((plan: { nome: string; franquia_internet: string; ligacoes: string; whatsapp: string; sms: string; beneficios: string[]; preco: string }) => ({
+          name: plan.nome, // Nome do plano
+          speed: plan.franquia_internet || "Sem informação", // Pega a franquia de internet
+          price: `R$ ${parseFloat(plan.preco).toFixed(2)}`, // Formata preço corretamente
+          details: [
+            `📞 Ligações: ${plan.ligacoes}`,
+            `💬 SMS: ${plan.sms}`,
+            `📱 WhatsApp: ${plan.whatsapp}`,
+            ...plan.beneficios, // Adiciona os benefícios ao array
+          ],
+        }));
+
+        setPlans(formattedPlans); // Atualiza o estado com os planos formatados
+      } catch (error) {
+        console.error("❌ Erro ao buscar planos:", error);
+      }
+    };
+    fetchPlans();
+  }, []);
 
   // Função para verificar se pode rolar para esquerda ou direita
   const checkScrollPosition = () => {
@@ -45,16 +76,6 @@ export default function ParaVoce() {
     };
   }, []);
 
-  const plans = [
-    { name: "Plano 1", speed: "100 mega", price: "R$ 99,90" },
-    { name: "Plano 2", speed: "200 mega", price: "R$ 139,90" },
-    { name: "Plano 3", speed: "250 mega", price: "R$ 179,90" },
-    { name: "Plano 4", speed: "300 mega", price: "R$ 199,90" },
-    { name: "Plano 5", speed: "400 mega", price: "R$ 249,90" },
-    { name: "Plano 6", speed: "500 mega", price: "R$ 299,90" },
-    { name: "Plano 7", speed: "600 mega", price: "R$ 349,90" },
-  ];
-
   return (
     <div className="plans-container">
       <h2 className="title">Escolha seu plano</h2>
@@ -64,10 +85,11 @@ export default function ParaVoce() {
           {plans.map((plan, index) => (
             <div key={index} className="plan-card">
               <h3>{plan.name}</h3>
-              <p className="speed">{plan.speed}</p>
+              <p className="speed">{plan.speed}</p> {/* Exibe a franquia de internet */}
               <ul>
-                <li>Plano celular 10GB</li>
-                <li>Ligações ilimitadas</li>
+                {plan.details.map((detail, i) => (
+                  <li key={i}>{detail}</li>
+                ))}
               </ul>
               <p className="price">{plan.price} /mês</p>
               <button 
