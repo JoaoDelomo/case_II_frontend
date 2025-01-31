@@ -12,7 +12,7 @@ export default function LandingPage() {
         </div>
         <img src="/src/assets/imagem_casal.png" alt="Família conectada" className="section-image" />
         <div className="plan-card">
-          <h3>100 Mega</h3>
+          <h3>100 MB</h3>
           <p className="plan-info">+ Plano celular 10 GB</p>
           <p className="plan-info">+ Ligações ilimitadas</p>
           <span>Por R$ 99,90/mês</span>
@@ -23,7 +23,7 @@ export default function LandingPage() {
       {/* Seção de Planos Empresariais */}
       <section className="business-section full-width">
         <div className="plan-card">
-          <h3>1 Giga</h3>
+          <h3>1 GB</h3>
           <p className="plan-info">+ Modem Wi-Fi grátis</p>
           <p className="plan-info">+ Ligações ilimitadas</p>
           <span>Por R$ 179,90/mês</span>
@@ -55,7 +55,7 @@ export default function LandingPage() {
         <div className="diff-box">
           <h2>Acelere seu negócio com nossos planos empresariais.</h2>
           <p>Internet de alta performance para empresas de todos os portes.</p>
-          <Link to="/" className="cta-button">Saiba mais</Link>
+          <Link to="/para-empresas" className="cta-button">Saiba mais</Link>
           <img src="/src/assets/conectividade_empresarial.png" alt="Conectividade Empresarial" className="section-image" />
         </div>
       </section>

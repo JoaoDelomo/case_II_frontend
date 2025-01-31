@@ -171,55 +171,86 @@ body, h1, h2, h3, p, a {
 /* 🔹 Seção de diferenciais */
 .differentials {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   padding: 3rem 5rem;
-  gap: 2rem;
+  gap: 4rem;
 }
 
+/* 🔹 Ajuste para cada box */
 .diff-box {
   flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
+  text-align: center;
 }
 
-/* 🔹 Ajuste para centralizar as imagens e manter os botões abaixo */
+/* 🔹 Ajuste para o título e o texto */
+.diff-box h2 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.diff-box p {
+  font-size: 1rem;
+  color: #444;
+  max-width: 80%;
+  margin-bottom: 1.5rem;
+}
+
+/* 🔹 Ajuste para o botão "Saiba mais" */
+.diff-box .cta-button {
+  background: white;
+  color: #0033cc;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  text-align: center;
+  width: fit-content;
+  transition: background 0.3s ease, color 0.3s ease;
+  margin-top: auto;
+}
+
+/* 🔹 Ajuste para alinhar os botões abaixo das imagens */
 .differentials img {
   max-width: 250px;
   height: auto;
-  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+/* 🔹 Pequeno deslocamento para cima na seção empresarial */
+.diff-box:nth-child(2) {
+  margin-top: -20px;
 }
 
 /* 🔹 Responsividade */
 @media (max-width: 768px) {
-  .full-width {
-    flex-direction: column;
-    text-align: center;
-    padding: 2rem;
-  }
-
-  .hero-text, .plan-card {
-    max-width: 100%;
-  }
-
-  .hero img {
-    width: 80%;
-    max-width: 100%;
-  }
-
-  .impact-section p {
-    max-width: 90%;
-  }
-
   .differentials {
     flex-direction: column;
-    align-items: center;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .diff-box {
+    width: 100%;
+  }
+
+  .diff-box p {
+    max-width: 100%;
   }
 
   .diff-box .cta-button {
-    margin-top: 1rem;
+    width: 80%;
+  }
+
+  /* Removendo deslocamento na versão mobile */
+  .diff-box:nth-child(2) {
+    margin-top: 0;
   }
 }
