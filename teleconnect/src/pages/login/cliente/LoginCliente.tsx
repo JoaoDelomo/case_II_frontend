@@ -1,9 +1,5 @@
 import { useState } from "react";
-<<<<<<< HEAD
 import { Link, useNavigate } from "react-router-dom";
-=======
-import { useNavigate } from "react-router-dom"; // Redirecionamento após login
->>>>>>> 18c92953c7840c7f42b718b41a1fd0345d50da43
 import { Eye, EyeSlash } from "@phosphor-icons/react";
 import "./LoginCliente.css"; // Importando o CSS
 
@@ -11,9 +7,6 @@ export default function LoginCliente() {
   const [identifier, setIdentifier] = useState(""); // Email ou telefone
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-<<<<<<< HEAD
-  const navigate = useNavigate(); // Hook para navegação
-=======
   const [error, setError] = useState(""); // Para exibir erros
   const navigate = useNavigate(); // Para redirecionar o usuário
 
@@ -21,16 +14,18 @@ export default function LoginCliente() {
   async function handleLogin(e: React.FormEvent) {
     e.preventDefault(); // Evita recarregar a página
 
-    const loginData = { identifier, password };
+    console.log("📡 Enviando dados para API:", { identifier, password });
 
     try {
       const response = await fetch("http://127.0.0.1:8000/api/login/customer", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(loginData),
+        body: JSON.stringify({ identifier, password }),
       });
 
       const data = await response.json();
+
+      console.log("🔹 Resposta do servidor:", data);
 
       if (!response.ok) {
         throw new Error(data.detail || "Erro ao fazer login");
@@ -39,26 +34,22 @@ export default function LoginCliente() {
       // 🔹 Armazena o token no localStorage
       localStorage.setItem("token", data.access_token);
 
-      // 🔹 Redireciona o usuário para a página principal ou dashboard
-      navigate("/");
+      // 🔹 Redireciona o usuário para o portal do cliente
+      navigate("/portal-cliente");
 
     } catch (err: any) {
+      console.error("❌ Erro ao fazer login:", err.message);
       setError(err.message);
     }
   }
->>>>>>> 18c92953c7840c7f42b718b41a1fd0345d50da43
 
   return (
     <div className="container">
       {/* Lado esquerdo - Formulário de Login */}
       <div className="leftPanel">
         <div className="content">
-<<<<<<< HEAD
           {/* Botão de Voltar */}
-          <button className="backButton" onClick={() => navigate("/login")}>←</button>
-=======
-          <button onClick={() => navigate("/login")} className="backButton">←</button>
->>>>>>> 18c92953c7840c7f42b718b41a1fd0345d50da43
+          <Link to="/login" className="backButton">←</Link>
 
           <h2>Portal do Cliente</h2>
 
@@ -87,23 +78,16 @@ export default function LoginCliente() {
               </span>
             </div>
 
-<<<<<<< HEAD
-            {/* Botão de Login */}
-            <button className="loginButton" onClick={() => navigate("/portal-cliente")}>
-              Login
-            </button>
-=======
             {/* Exibir erro, se houver */}
-            {error && <p className="error">{error}</p>}
->>>>>>> 18c92953c7840c7f42b718b41a1fd0345d50da43
+            {error && <p className="error" style={{ color: "red" }}>⚠️ {error}</p>}
 
             <button type="submit" className="loginButton">Login</button>
           </form>
 
-          <a href="/forgot-password" className="forgotPassword">Esqueci minha senha</a>
+          <Link to="/forgot-password" className="forgotPassword">Esqueci minha senha</Link>
 
           <div className="registerLink">
-            Não possui uma conta? <a href="/register">Registre-se</a>
+            Não possui uma conta? <Link to="/register">Registre-se</Link>
           </div>
         </div>
       </div>
